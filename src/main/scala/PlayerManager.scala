@@ -35,8 +35,10 @@ object PlayerManager {
         (Some(existingPlayer), players)
       case None =>
         val newPlayer = Player(playerName)
+        players += (playerName -> newPlayer)
         println(s"Neuer Spieler ${newPlayer.name} wurde erstellt")
-        (Some(newPlayer), players + (playerName -> newPlayer))
+        (Some(newPlayer), players)
+
     }
   }
 
@@ -52,7 +54,8 @@ object PlayerManager {
   }
 
   def updatePlayer(players: mutable.Map[String, Player], player: Player): mutable.Map[String, Player] = {
-    players + (player.name -> player)
+    players += (player.name -> player)
+    players
   }
 
   def deletePlayer(players: mutable.Map[String, Player], adminPassword: String): mutable.Map[String, Player] = {

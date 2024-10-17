@@ -1,12 +1,6 @@
 import scala.io.StdIn._
 import scala.util.control.Breaks._
 import scala.util.Random
-import java.io._
-import scala.collection.mutable
-
-
-
-
 
 val zahlenbereiche: Map[Int, (Int, Int)] = Map(
   1 -> (1, 10),
@@ -64,6 +58,7 @@ def schwierigkeitWaehlen(): Double = {
   schwierigkeit(schwierigkeitsWahl)
 }
 
+
 @main def main(): Unit = {
   val random = new Random()
   var players = PlayerManager.loadPlayers()
@@ -75,8 +70,7 @@ def schwierigkeitWaehlen(): Double = {
     while (true) {
       // Abfrage, ob Spieler gelöscht werden sollen
       println("Möchtest du einen Spieler löschen? (j/n)")
-      val deleteInput = readLine().toLowerCase()
-      if (deleteInput == "j") {
+      if (readLine().toLowerCase() == "j") {
         try {
           players = PlayerManager.deletePlayer(players, adminPassword)
           PlayerManager.savePlayers(players) // Spieler speichern nach dem Löschen
@@ -89,8 +83,6 @@ def schwierigkeitWaehlen(): Double = {
         player = newPlayer.getOrElse(player) // Wenn ein neuer Spieler erstellt wurde, den aktuellen Spieler aktualisieren
       }
 
-
-
       val (untereGrenze, obereGrenze) = zahlenbereichWaehlen()
       val schwierigkeitsMultiplikator = schwierigkeitWaehlen()
       val versuche = ((obereGrenze - untereGrenze + 1) * schwierigkeitsMultiplikator).toInt
@@ -99,7 +91,6 @@ def schwierigkeitWaehlen(): Double = {
       var versuchscounter = 0
 
       println(s"Nenne eine Nummer von $untereGrenze bis $obereGrenze:")
-
       var numb = readInt()
 
       while (versuchscounter < versuche) {
