@@ -1,0 +1,50 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+*.class
+
+# Scala
+target/
+lib/
+*.log
+
+# Benutzerdefinierte Konfigurationsdateien
+*.ipr
+*.iws
+
+# Eclipse IDE
+.project
+.classpath
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Log-Dateien
+*.log
+
+# Build-Verzeichnisse
+build/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.tar
+*.tgz
+
+# Temporäre Dateien
+*.tmp
+*.temp
+
+# IDE-spezifische Dateien
+*.user
+*.sublime-workspace
+*.sublime-project
+
+# Verzeichnisse für IDEs
+.idea_modules/
